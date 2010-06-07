@@ -26,7 +26,7 @@
     a { color: #000000; }
     .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
+		pre { background: #fff; color: #000; padding: 15px;}
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
 	</style>
@@ -48,22 +48,13 @@
     <h1><a href="http://github.com/ia/cryptutil">cryptutil</a>
       <span class="small">by <a href="http://github.com/ia">ia</a></span></h1>
 
-    <div class="description">
-      encryption utility for human beings
-    </div>
-
-    <p>cryptutil</p><h2>Dependencies</h2>
-<p>libparted</p>
-<h2>Install</h2>
-<p>./configure && make && make install</p>
-<h2>License</h2>
-<p>GPL V3</p>
-<h2>Authors</h2>
-<p>Ivan Zorin (ivan.a.zorin@gmail.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Ivan Zorin (ivan.a.zorin@gmail.com)<br/>      </p>
-
-
+<pre>
+<p>encryption utility for human beings</p>
+Dependencies: libparted
+Install: ./configure && make && make install
+License: GPL v3
+Author: Ivan Zorin
+</pre>
     <h2>Download</h2>
     <p>
       You can download this project in either
@@ -72,109 +63,107 @@
     </p>
     <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
       by running:
-      <p>$ git clone git://github.com/ia/cryptutil</p>
+      <pre>$ git clone git://github.com/ia/cryptutil</pre>
     </p>
-
+<pre>
     <h2>README</h2>
-    <p>
-/!\ Warning! This is very unstable software, that can harm your data.<br>
-Before any encryption actions with data you should backup that data.<br>
-<br>
-cryptutil is a small utility based on:<br>
- • EcryptFS stack<br>
- • Parted library<br>
- • Cryptsetup tool<br>
-for encryption and handling encrypted data in an easy way.<br>
-<br>
-Table of Content<br>
-	0. Rationale<br>
-	1. Installation<br>
-	2. Basic Usage<br>
-	3. Technical Details<br>
-	4. Links<br>
-<br>
-====<br>
-<br>
-0. Rationale<br>
-<br>
-There are a lot tools, which can encrypt data.<br>
-But most popular of them for GNU/Linux:<br>
-• EcryptFS for directories<br>
-• Cryptsetup for partitions/disks (via LUKS - Linux Unified Key Setup)<br>
-But for handle encrypted data, these tools and their commands too dissimilar.<br>
-cryptutil is just command-line front-end for handle encryption with simple<br>
-actions, commands and options.<br>
-<br>
-====<br>
-<br>
-1. Installation<br>
-<br>
-cryptutil can be installed from package, or from sources.<br>
-Packages for Ubuntu can be found in this launchpad repository:<br>
-http://launchpad.net/~iaz/+archive/cryptutil<br>
-Debian/Ubuntu-related source code tree (with debian/ directory for packaging):<br>
-http://code.launchpad.net/~iaz/cryptutil/trunk<br>
-non-Debian/Ubuntu source code tree (without debian/ directory):<br>
-http://github.com/ia/cryptutil<br>
-Command for installation from sources:<br>
-$ ./configure && make<br>
-# make install<br>
-<br>
-====<br>
-<br>
-2. Basic Usage<br>
-<br>
-Currently cryptutil support only basic operations, and only for directories<br>
-via EcryptFS. For encrypt directory run in terminal:<br>
-# cryptutil encrypt /path/to/directory<br>
-You must be type password for encrypt your directory.<br>
-<br>
-/!\ WARNING! Password will be asked only one time without any prompt!<br>
-<br>
-And then just hit enter on FNEK question. Done! Your data is encrypted<br>
-and directory is mounted and available for access.<br>
-For unmount("unencrypt") directory:<br>
-# umount /path/to/directory<br>
-<br>
-For decrypt directory:<br>
-# cryptutil decrypt /path/to/directory<br>
-<br>
-You must be type password for decrypt your directory.<br>
-And then just hit enter on FNEK question. Done! Your data is decrypted<br>
-and directory is mounted again and available for access.<br>
-If password is wrong, you can't get access to your directory.<br>
-<br>
-====<br>
-<br>
-3. Technical Details<br>
-<br>
-cryptutil written in C with using:<br>
-• exec calls for handling ecryptfs stack via mount<br>
-• libparted for probe block devices and handle it for encryption*<br>
-• cryptsetup/libcryptsetup for encrypt/decrypt block devices via LUKS*<br>
-<br>
-* - not implemented; work in progress.<br>
-<br>
-/!\ Note<br>
-For using EcryptFS Linux kernel must have support EcryptFS module.<br>
-For using LUKS Linux kernel must have support dm-crypt module.<br>
-<br>
-====<br>
-<br>
-4. Links<br>
-<br>
-home page: http://ia.github.com/cryptutil<br>
-github page: http://github.com/ia/cryptutil<br>
-launchpad page: http://launchpad.net/cryptutil<br>
-<br>
-Home pages of related projects:<br>
-EcryptFS: http://launchpad.net/ecryptfs<br>
-Parted/Libparted: http://www.gnu.org/software/parted<br>
-Cryptsetup/Libcryptsetup: http://code.google.com/p/cryptsetup<br>
-<br>
-Feel free for sending any questions/improvements/bug reports/patches/etc.<br>
-<br>
-    </p>
+/!\ Warning! This is very unstable software, that can harm your data.
+Before any encryption actions with data you should backup that data.
+
+cryptutil is a small utility based on:
+ • EcryptFS stack
+ • Parted library
+ • Cryptsetup tool
+for encryption and handling encrypted data in an easy way.
+
+Table of Content
+	0. Rationale
+	1. Installation
+	2. Basic Usage
+	3. Technical Details
+	4. Links
+
+====
+
+0. Rationale
+
+There are a lot tools, which can encrypt data.
+But most popular of them for GNU/Linux:
+• EcryptFS for directories
+• Cryptsetup for partitions/disks (via LUKS - Linux Unified Key Setup)
+But for handle encrypted data, these tools and their commands too dissimilar.
+cryptutil is just command-line front-end for handle encryption with simple
+actions, commands and options.
+
+====
+
+1. Installation
+
+cryptutil can be installed from package, or from sources.
+Packages for Ubuntu can be found in this launchpad repository:
+http://launchpad.net/~iaz/+archive/cryptutil
+Debian/Ubuntu-related source code tree (with debian/ directory for packaging):
+http://code.launchpad.net/~iaz/cryptutil/trunk
+non-Debian/Ubuntu source code tree (without debian/ directory):
+http://github.com/ia/cryptutil
+Command for installation from sources:
+$ ./configure && make
+# make install
+
+====
+
+2. Basic Usage
+
+Currently cryptutil support only basic operations, and only for directories
+via EcryptFS. For encrypt directory run in terminal:
+# cryptutil encrypt /path/to/directory
+You must be type password for encrypt your directory.
+
+/!\ WARNING! Password will be asked only one time without any prompt!
+
+And then just hit enter on FNEK question. Done! Your data is encrypted
+and directory is mounted and available for access.
+For unmount("unencrypt") directory:
+# umount /path/to/directory
+
+For decrypt directory:
+# cryptutil decrypt /path/to/directory
+
+You must be type password for decrypt your directory.
+And then just hit enter on FNEK question. Done! Your data is decrypted
+and directory is mounted again and available for access.
+If password is wrong, you can't get access to your directory.
+
+====
+
+3. Technical Details
+
+cryptutil written in C with using:
+• exec calls for handling ecryptfs stack via mount
+• libparted for probe block devices and handle it for encryption*
+• cryptsetup/libcryptsetup for encrypt/decrypt block devices via LUKS*
+
+* - not implemented yet; work in progress.
+
+/!\ Note
+For using EcryptFS Linux kernel must have support EcryptFS module.
+For using LUKS Linux kernel must have support dm-crypt module.
+
+====
+
+4. Links
+
+home page: http://ia.github.com/cryptutil
+github page: http://github.com/ia/cryptutil
+launchpad page: http://launchpad.net/cryptutil
+
+Home pages of related projects:
+EcryptFS: http://launchpad.net/ecryptfs
+Parted/Libparted: http://www.gnu.org/software/parted
+Cryptsetup/Libcryptsetup: http://code.google.com/p/cryptsetup
+
+Feel free for sending any questions/improvements/bug reports/patches/etc.
+    </pre>
 
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/ia/cryptutil">ia/cryptutil</a>
@@ -182,6 +171,5 @@ Feel free for sending any questions/improvements/bug reports/patches/etc.<br>
 
   </div>
 
-  
 </body>
 </html>
