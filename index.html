@@ -75,6 +75,107 @@
       <pre>$ git clone git://github.com/ia/cryptutil</pre>
     </p>
 
+    <h2>README</h2>
+    <p>
+/!\ Warning! This is very unstable software, that can harm your data.<br>
+Before any encryption actions with data you should backup that data.<br>
+<br>
+cryptutil is a small utility based on:<br>
+ • EcryptFS stack<br>
+ • Parted library<br>
+ • Cryptsetup tool<br>
+for encryption and handling encrypted data in an easy way.<br>
+<br>
+Table of Content<br>
+	0. Rationale<br>
+	1. Installation<br>
+	2. Basic Usage<br>
+	3. Technical Details<br>
+	4. Links<br>
+<br>
+====<br>
+<br>
+0. Rationale<br>
+<br>
+There are a lot tools, which can encrypt data.<br>
+But most popular of them for GNU/Linux:<br>
+• EcryptFS for directories<br>
+• Cryptsetup for partitions/disks (via LUKS - Linux Unified Key Setup)<br>
+But for handle encrypted data, these tools and their commands too dissimilar.<br>
+cryptutil is just command-line front-end for handle encryption with simple<br>
+actions, commands and options.<br>
+<br>
+====<br>
+<br>
+1. Installation<br>
+<br>
+cryptutil can be installed from package, or from sources.<br>
+Packages for Ubuntu can be found in this launchpad repository:<br>
+http://launchpad.net/~iaz/+archive/cryptutil<br>
+Debian/Ubuntu-related source code tree (with debian/ directory for packaging):<br>
+http://code.launchpad.net/~iaz/cryptutil/trunk<br>
+non-Debian/Ubuntu source code tree (without debian/ directory):<br>
+http://github.com/ia/cryptutil<br>
+Command for installation from sources:<br>
+$ ./configure && make<br>
+# make install<br>
+<br>
+====<br>
+<br>
+2. Basic Usage<br>
+<br>
+Currently cryptutil support only basic operations, and only for directories<br>
+via EcryptFS. For encrypt directory run in terminal:<br>
+# cryptutil encrypt /path/to/directory<br>
+You must be type password for encrypt your directory.<br>
+<br>
+/!\ WARNING! Password will be asked only one time without any prompt!<br>
+<br>
+And then just hit enter on FNEK question. Done! Your data is encrypted<br>
+and directory is mounted and available for access.<br>
+For unmount("unencrypt") directory:<br>
+# umount /path/to/directory<br>
+<br>
+For decrypt directory:<br>
+# cryptutil decrypt /path/to/directory<br>
+<br>
+You must be type password for decrypt your directory.<br>
+And then just hit enter on FNEK question. Done! Your data is decrypted<br>
+and directory is mounted again and available for access.<br>
+If password is wrong, you can't get access to your directory.<br>
+<br>
+====<br>
+<br>
+3. Technical Details<br>
+<br>
+cryptutil written in C with using:<br>
+• exec calls for handling ecryptfs stack via mount<br>
+• libparted for probe block devices and handle it for encryption*<br>
+• cryptsetup/libcryptsetup for encrypt/decrypt block devices via LUKS*<br>
+<br>
+* - not implemented; work in progress.<br>
+<br>
+/!\ Note<br>
+For using EcryptFS Linux kernel must have support EcryptFS module.<br>
+For using LUKS Linux kernel must have support dm-crypt module.<br>
+<br>
+====<br>
+<br>
+4. Links<br>
+<br>
+home page: http://ia.github.com/cryptutil<br>
+github page: http://github.com/ia/cryptutil<br>
+launchpad page: http://launchpad.net/cryptutil<br>
+<br>
+Home pages of related projects:<br>
+EcryptFS: http://launchpad.net/ecryptfs<br>
+Parted/Libparted: http://www.gnu.org/software/parted<br>
+Cryptsetup/Libcryptsetup: http://code.google.com/p/cryptsetup<br>
+<br>
+Feel free for sending any questions/improvements/bug reports/patches/etc.<br>
+<br>
+    </p>
+
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/ia/cryptutil">ia/cryptutil</a>
     </div>
